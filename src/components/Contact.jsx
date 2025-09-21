@@ -65,7 +65,8 @@ const Contact = () => {
                 src={item.image}
                 alt={item.text}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500"
-              />
+             loading='lazy'
+             />
               <p className="absolute bottom-4 left-4 text-white font-semibold text-sm sm:text-base md:text-lg bg-black/50 px-2 sm:px-3 py-1 rounded">
                 {item.text}
               </p>

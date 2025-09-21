@@ -1,11 +1,10 @@
-
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import homaimage from "../assets/image.jpg";
 import Contact from "../components/Contact";
 import Homewriteup from "../components/Homewriteup";
 import Loader from "../lib/Loader"; 
-import cosmetics from '../assets/cosmetics.jpg'
+import cosmetics from '../assets/cosmetics.jpg';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -27,8 +26,9 @@ const Home = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="w-full min-h-screen relative z-20">
+    <div className="w-full min-h-screen relative z-20 overflow-x-hidden">
       <Navbar />
+
       <div id="home" className="w-full min-h-screen">
 
         {/* Hero Section */}
@@ -37,15 +37,17 @@ const Home = () => {
             src={homaimage}
             alt="home-image"
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute top-0 left-0 w-full h-full bg-black/40 flex flex-col items-center justify-center text-center px-4">
             <h1 className="uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-md">
-              pricioux beauty salon
+              Pricioux Beauty Salon
             </h1>
             <p className="py-2 text-sm sm:text-base md:text-lg lg:text-xl text-gray-200">
               Where beauty meets confidence.
             </p>
-            <a href="#contact"
+            <a 
+              href="#contact"
               className="py-3 text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 animate-bounce hover:text-white transition-colors"
             >
               scroll ↓
@@ -54,7 +56,7 @@ const Home = () => {
         </div>
 
         {/* Contact Section */}
-        <section id="contact" className=" py-10">
+        <section id="contact" className="py-10 ">
           <Contact />
         </section>
 
@@ -65,12 +67,14 @@ const Home = () => {
 
         {/* Cosmetic Image Section */}
         <section className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] grayscale hover:grayscale-0 transition-all duration-300">
-          <img src={cosmetics} alt="cosmetics" className="w-full h-full object-cover" />
+          <img src={cosmetics} alt="cosmetics" className="w-full h-full object-cover" loading="lazy" />
         </section>
 
         {/* Testimonials */}
         <section className="py-12 bg-[#f5f4f1] px-4 sm:px-6 md:px-12 lg:px-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8">What Our Clients Say</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8">
+            What Our Clients Say
+          </h2>
           <div className="flex flex-wrap justify-center gap-6">
             {[
               { text: "Pricioux gave me the best hair experience ever!", name: "Mary" },
@@ -91,8 +95,10 @@ const Home = () => {
 
       {/* Scroll to top button */}
       {showScroll && (
-        <div className="fixed bottom-6 right-6 w-10 h-10 rounded-full animate-bounce border flex items-center justify-center cursor-pointer bg-white shadow-md hover:bg-gray-100 transition">
-          <a href="#home">⬆</a>
+        <div 
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full animate-bounce border flex items-center justify-center cursor-pointer bg-white shadow-md hover:bg-gray-100 transition"
+        >
+          <a href="#home" className="text-lg sm:text-xl">⬆</a>
         </div>
       )}
     </div>
