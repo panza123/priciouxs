@@ -12,7 +12,7 @@ function App() {
  
 
   return (
-    <>
+    <div className="w-screen min-h-screen">
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
@@ -21,7 +21,7 @@ function App() {
       <Route path='/reservation' element={<Reservation/>}/>
     </Routes>
     <Footer/>
-    </>
+    </div>
   );
 }
 
